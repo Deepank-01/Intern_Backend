@@ -3,7 +3,7 @@ app=express()
 
 const { json } = require("body-parser")
 var cookieParser = require('cookie-parser')
-
+var cors = require('cors')
 // necressary imports
 const DB_connect=require("./Connection/DB_connect")
 const student_routes=require("./routes/Student_routes")
@@ -20,7 +20,7 @@ const PORT=process.env.PORT || 3000
 // middlewares
 app.use(json())
 app.use(cookieParser())
-
+app.use(cors())
 
 // Routers
 app.use("/student",student_routes)
